@@ -1,0 +1,103 @@
+:root {
+    --bg-main: #d6c2fe;
+    --bg-card: #ffffff;
+    --bg-input: #ffffff;
+    --border-light: #d6d3f5;
+    --border-focus: #8676f4;
+    --text-primary: #4d4d4d;
+    --text-heading: #5a4ccf;
+    --text-subheading: #7a6be2;
+    --btn-bg: #8a79ff;
+    --btn-hover: #7a69f2;
+    --btn-text: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.4); 
+    --toggle-bg: #6a5acd;
+    --toggle-hover: #584ac6;
+}
+body.dark {
+    --bg-main: #202045;
+    --bg-card: #2a2a3c;
+    --bg-input: #2a2a3c;
+    --border-light: #464667;
+    --border-focus: #ad9bff;
+    --text-primary: #e4e4e4;
+    --text-heading: #b8aaff;
+    --text-subheading: #c9baff;
+    --btn-bg: #9a89ff;
+    --btn-hover: #b6a7ff;
+    --btn-text: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.4);
+    --toggle-bg: #9a89ff;
+    --toggle-hover: #b6a7ff;
+}
+.profile-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 16px;
+    background: var(--bg-main);
+    box-shadow: 0 4px 20px var(--shadow-light);
+    transition: 0.3s ease;
+}
+.profile-container h2 {
+    margin-bottom: 20px;
+    color: var(--text-heading);
+}
+.profile-right h3 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: var(--text-subheading);
+}
+.profile-right form label {
+    margin-top: 8px;
+    display: block;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--text-primary);
+}
+.profile-right input, .profile-right textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 0.1px solid var(--border-light);
+    background: var(--bg-input);
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    transition: 0.3s;
+}
+.profile-right input:focus, .profile-right textarea:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 5px var(--border-focus);
+}
+.save-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.save-btn:hover {
+    background: var(--btn-hover);
+    transform: translateY(-2px);
+}
+.toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--toggle-bg);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    border: none;
+    transition: 0.3s;
+}
+.toggle-btn:hover {
+    background: var(--toggle-hover);
+}

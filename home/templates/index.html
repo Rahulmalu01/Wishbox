@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/home/index.css' %}">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Make Every Gift Personal</h1>
+    <p>Design memories. Deliver emotions.</p>
+    <a href="/products/" class="btn">Shop Now</a>
+  </div>
+
+  <!-- Floating foreign elements -->
+  <span class="float circle"></span>
+  <span class="float blob"></span>
+  <span class="float triangle"></span>
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+<section class="categories">
+  <h2>Featured Categories</h2>
+
+  <div class="category-grid">
+    <div class="category-card pink">🎁 Personalized Gifts</div>
+    <div class="category-card purple">💼 Corporate Gifts</div>
+    <div class="category-card blue">✋ Handmade Gifts</div>
+    <div class="category-card green">🎉 Festive Specials</div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS (BACKEND) ================= -->
+<section class="reviews">
+  <h2>What People Say 💬</h2>
+
+  <div class="reviews-track">
+    {% for r in reviews %}
+    <div class="review-card">
+      <div class="stars">
+        {% for _ in "x"|ljust:r.rating %}⭐{% endfor %}
+      </div>
+      <p>{{ r.message }}</p>
+      <strong>— {{ r.name }}</strong>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ================= NEWSLETTER ================= -->
+<section class="newsletter">
+  <h2>Join Our Newsletter</h2>
+  <p>Offers, inspiration & surprises 💌</p>
+
+  <form id="newsletterForm">
+    {% csrf_token %}
+    <input type="email" name="email" placeholder="Your email" required>
+    <button type="submit">Subscribe</button>
+  </form>
+</section>
+
+<script src="{% static 'js/home/index.js' %}"></script>
+{% endblock content %}

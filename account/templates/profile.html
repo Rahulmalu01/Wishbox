@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/account/profile.css' %}">
+
+<div class="profile-container">
+    <h2>Your Profile</h2>
+        <div class="profile-right">
+            <form id="profileForm" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h3>Account Details</h3>
+
+                <label>Username</label>
+                {{ user_form.username }}
+
+                <label>Email</label>
+                {{ user_form.email }}
+
+                <h3>Personal Info</h3>
+
+                <label>Full Name</label>
+                {{ profile_form.full_name }}
+
+                <label>Phone</label>
+                {{ profile_form.phone }}
+
+                <label>Address</label>
+                {{ profile_form.address }}
+
+                <label>Bio</label>
+                {{ profile_form.bio }}
+
+                <button type="submit" class="save-btn">Save Changes</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

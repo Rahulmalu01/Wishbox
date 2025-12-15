@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'shop/css/base/cartpage.css' %}">
+
+<main class="cart-page" style="padding: 40px 18px; max-width:1200px; margin:0 auto;">
+  <h1 style="margin-bottom:18px;">Your Cart</h1>
+
+  <div id="cartWrapper">
+    {% if cart.items %}
+      <div class="cart-grid">
+        <div class="cart-items">
+          {% for item in cart.items %}
+            <div class="cart-row" data-product-id="{{ item.product_id }}">
+              {% if item.img %}
+                <img src="{{ item.img }}" alt="{{ item.name }}" class="cart-thumb">
+              {% else %}
+                <img src="{% static 'assets/placeholder.png' %}" alt="{{ item.name }}" class="cart-thumb">
+              {% endif %}
+              <div class="cart-meta">
+                <div class="cart-name">{{ item.name }}</div>
+                <div class="cart-price">$ {{ item.price }}</div>
+                <div class="cart-controls">
+                  <button class="qty-btn dec" data-id="{{ item.product_id }}">−</button>
+                  <span class="qty">{{ item.qty }}</span>
+                  <button class="qty-btn inc" data-id="{{ item.product_id }}">+</button>
+                  <button class="remove-btn" data-id="{{ item.product_id }}">Remove</button>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <aside class="cart-summary">
+          <div class="summary-card">
+            <h3>Order Summary</h3>
+            <p>Items: <span id="summaryCount">{{ cart.items|length }}</span></p>
+            <p>Subtotal: $<span id="summaryTotal">0.00</span></p>
+
+            <button id="checkoutBtn" class="btn btn-primary" style="width:100%;">Proceed to Checkout</button>
+          </div>
+        </aside>
+      </div>
+    {% else %}
+      <div class="empty-cart" style="padding:40px;text-align:center;color:#7b7b7b;">
+        Your cart is empty. <a href="{% url 'shop' %}">Continue shopping</a>
+      </div>
+    {% endif %}
+  </div>
+</main>
+
+<script src="{% static 'shop/js/cartpage.js' %}"></script>
+{% endblock %}

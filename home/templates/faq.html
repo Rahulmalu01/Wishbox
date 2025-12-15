@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/home/faq.css' %}">
+
+<section class="faq-section fade-in">
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <p class="faq-subtitle">Quick answers to common questions</p>
+        <div class="faq-grid">
+            {% for faq in faqs %}
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>{{ faq.q }}</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>{{ faq.a }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<script src="{% static 'js/home/faq.js' %}"></script>
+{% endblock content %}

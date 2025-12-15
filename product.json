@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Personalized Photo Mug",
+    "price": 24.99,
+    "category": "personalized",
+    "image": "/personalized-mug.jpg",
+    "description": "Beautiful ceramic mug with your custom photo printed on it. Perfect for daily use.",
+    "specs": ["Material: Ceramic", "Capacity: 11oz", "Microwave Safe", "Dishwasher Safe"]
+  },
+  {
+    "id": 2,
+    "name": "Custom T-Shirt",
+    "price": 34.99,
+    "category": "personalized",
+    "image": "/custom-tshirt.jpg",
+    "description": "Premium quality cotton t-shirt with your custom design.",
+    "specs": ["Material: 100% Cotton", "Sizes: XS-XXL", "Print Method: Screen Print"]
+  },
+  {
+    "id": 3,
+    "name": "Photo Canvas Print",
+    "price": 89.99,
+    "category": "personalized",
+    "image": "/photo-canvas.jpg",
+    "description": "Professional canvas print of your favorite photo.",
+    "specs": ["Size: 8x10", "Material: Canvas", "Frame: Wooden", "Ready to Hang"]
+  },
+  {
+    "id": 4,
+    "name": "Corporate Gift Box",
+    "price": 49.99,
+    "category": "corporate",
+    "image": "/corporate-gift.jpg",
+    "description": "Elegant gift box with corporate branding options.",
+    "specs": ["Customizable Branding", "Premium Packaging", "Bulk Orders Available"]
+  },
+  {
+    "id": 5,
+    "name": "Handmade Wooden Box",
+    "price": 59.99,
+    "category": "handmade",
+    "image": "/wooden-box.jpg",
+    "description": "Beautiful handcrafted wooden box, perfect for jewelry or keepsakes.",
+    "specs": ["Material: Solid Wood", "Handcrafted", "Dimensions: 6x4x3in"]
+  },
+  {
+    "id": 6,
+    "name": "Festive Ornament",
+    "price": 19.99,
+    "category": "festive",
+    "image": "/festive-ornament.jpg",
+    "description": "Beautiful holiday ornament with custom personalization.",
+    "specs": ["Material: Glass/Ceramic", "Personalization Available", "Gift Ready"]
+  },
+  {
+    "id": 7,
+    "name": "Decorative Pillow",
+    "price": 44.99,
+    "category": "personalized",
+    "image": "/decorative-pillow.jpg",
+    "description": "Soft decorative pillow with your custom photo or design.",
+    "specs": ["Size: 16x16in", "Removable Cover", "Machine Washable"]
+  },
+  {
+    "id": 8,
+    "name": "Photo Blanket",
+    "price": 79.99,
+    "category": "personalized",
+    "image": "/photo-blanket.jpg",
+    "description": "Cozy blanket featuring your favorite memories.",
+    "specs": ["Material: Fleece/Cotton", "Size: 50x60in", "Machine Washable"]
+  }
+]

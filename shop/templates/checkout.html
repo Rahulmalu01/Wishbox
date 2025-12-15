@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'shop/css/base/cartpage.css' %}">
+<main style="max-width:900px;margin:36px auto;padding:16px;">
+  <h1>Checkout</h1>
+  <div id="checkoutInfo">
+    <p>Order total: ₹ <span id="checkoutAmount">{{ subtotal }}</span></p>
+    <button id="payBtn" class="btn btn-primary">Pay with Razorpay</button>
+  </div>
+</main>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  const PAY_API = "{% url 'shop:api_create_payment_order' %}";
+  const csrf = (document.cookie.split(';').find(c => c.trim().startsWith('csrftoken='))||'').split('=')[1];
+
+  document.getElementById('payBtn').addEventListener('click', async () => {
+    const res = await fetch(PAY_API, { method: 'POST', headers: {'X-CSRFToken': csrf} });
+    const data = await res.json();
+    if (!res.ok) {
+      alert('Could not create order. Make sure your cart is not empty.');
+      return;
+    }
+    const options = {
+      "key": data.key,
+      "amount": data.amount,
+      "currency": data.currency,
+      "name": "LuxeGifts",
+      "description": "Order payment",
+      "order_id": data.order_id,
+      "handler": function (response){
+        // In production verify payment server-side (webhook is recommended)
+        alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
+        // Optionally redirect to thank-you page
+        window.location.href = "{% url 'shop:cart_page' %}";
+      },
+      "prefill": {
+        "name": "{{ request.user.get_full_name|default:request.user.username if request.user.is_authenticated else '' }}",
+        "email": "{{ request.user.email|default:'' }}"
+      }
+    };
+    const rzp = new Razorpay(options);
+    rzp.open();
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href='{% static "css/home/contact.css" %}'>
+    <section class="contact-section fade-in">
+        <div class="container">
+            <h1>Get In Touch</h1>
+            <p class="subtitle">We'd love to hear from you. Send us a message!</p>
+
+            <div class="contact-grid">
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="contactName">Full Name</label>
+                            <input type="text" id="contactName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email Address</label>
+                            <input type="email" id="contactEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Phone (Optional)</label>
+                            <input type="tel" id="contactPhone">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject">Subject</label>
+                            <select id="contactSubject" required>
+                                <option value="">Select a subject...</option>
+                                <option value="order">Order Question</option>
+                                <option value="product">Product Inquiry</option>
+                                <option value="customization">Customization Help</option>
+                                <option value="bulk">Bulk Orders</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea id="contactMessage" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="info-card">
+                        <h3>📍 Address</h3>
+                        <p>123 Gift Street<br>New York, NY 10001<br>United States</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>📧 Email</h3>
+                        <p><a href="mailto:info@luxegifts.com">info@luxegifts.com</a></p>
+                        <p><a href="mailto:support@luxegifts.com">support@luxegifts.com</a></p>
+                    </div>
+                    <div class="info-card">
+                        <h3>📞 Phone</h3>
+                        <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                        <p>Mon-Fri: 9 AM - 6 PM EST</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🕐 Business Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM EST<br>
+                        Saturday: 10:00 AM - 4:00 PM EST<br>
+                        Sunday: Closed</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Follow Us</h3>
+                        <div class="social-icons-large">
+                            <a href="#">Facebook</a>
+                            <a href="#">Instagram</a>
+                            <a href="#">Twitter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src='{% static "js/home/contact.js" %}'></script>
+{% endblock content %}

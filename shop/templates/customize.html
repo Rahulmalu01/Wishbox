@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/shop/customize.css' %}">
+<section class="customize-section">
+  <div class="container">
+    <h1>Create Your Perfect Gift</h1>
+    <div class="customize-grid">
+      <form id="customizeForm" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+          <label>Select Product</label>
+          <select name="product" id="productSelect" required>
+            <option value="">Choose...</option>
+            <option value="mug">Personalized Mug</option>
+            <option value="tshirt">Custom T-Shirt</option>
+            <option value="canvas">Photo Canvas</option>
+            <option value="pillow">Decorative Pillow</option>
+            <option value="blanket">Photo Blanket</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Upload Image</label>
+          <input type="file" name="image" id="imageUpload" accept="image/*">
+        </div>
+        <div class="form-group">
+          <label>Custom Text</label>
+          <input type="text" name="custom_text" id="customText" maxlength="50">
+          <small><span id="charCount">0</span>/50</small>
+        </div>
+        <div class="form-group">
+          <label>Text Color</label>
+          <input type="color" name="text_color" id="textColor" value="#d4af37">
+        </div>
+        <div class="form-group">
+          <label>Font</label>
+          <select name="text_font" id="textFont">
+            <option value="Playfair Display">Playfair Display</option>
+            <option value="Poppins">Poppins</option>
+            <option value="Georgia">Georgia</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Packaging</label>
+          <select name="packaging" id="packaging">
+            <option value="standard">Standard</option>
+            <option value="premium">Premium (+5)</option>
+            <option value="deluxe">Deluxe (+10)</option>
+          </select>
+        </div>
+        <label>
+          <input type="checkbox" name="gift_wrap" id="giftWrap">
+          Gift Wrap (+3)
+        </label>
+        <input type="hidden" name="base_price" id="basePriceInput">
+        <input type="hidden" name="packaging_price" id="packagingPriceInput">
+        <input type="hidden" name="wrapping_price" id="wrappingPriceInput">
+        <input type="hidden" name="total_price" id="totalPriceInput">
+        <div class="price-summary">
+          <p>Base: $<span id="basePrice">0</span></p>
+          <p>Packaging: $<span id="packagingPrice">0</span></p>
+          <p>Wrapping: $<span id="wrappingPrice">0</span></p>
+          <h3>Total: $<span id="totalPrice">0</span></h3>
+        </div>
+        <button type="submit" class="btn">Save Custom Order</button>
+      </form>
+      <div class="preview">
+        <img id="previewImage" src="/static/assets/placeholder.png">
+        <div id="previewText">Your text here</div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="{% static 'js/shop/customize.js' %}"></script>
+{% endblock %}

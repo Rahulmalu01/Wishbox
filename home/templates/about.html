@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/home/about.css' %}">
+<section class="about-section">
+    <div class="container">
+        <div class="about-hero fade-in">
+            <h1>About LuxeGifts</h1>
+            <p class="subtitle">Where thoughtful design meets meaningful gifting</p>
+        </div>
+        <div class="about-content reveal">
+            <div class="about-text">
+                <h2>Our Story</h2>
+                <p>
+                    LuxeGifts was founded in 2020 with a simple mission: to make every gift personal and memorable.
+                    What began as a small family workshop has grown into a trusted gifting brand.
+                </p>
+                <p>
+                    We believe the best gifts tell stories - moments, emotions, and connections captured forever.
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="/static/assets/products/artisan-workshop-crafting-handmade-gifts.jpg" alt="Workshop">
+            </div>
+        </div>
+        <div class="mission-section reveal">
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <h3>🎯 Mission</h3>
+                    <p>Create premium personalized gifts that celebrate relationships and milestones.</p>
+                </div>
+                <div class="mission-card">
+                    <h3>✨ Values</h3>
+                    <p>Craftsmanship, authenticity, transparency, and customer-first thinking.</p>
+                </div>
+                <div class="mission-card">
+                    <h3>🌱 Commitment</h3>
+                    <p>Sustainable sourcing and ethical production in every step.</p>
+                </div>
+            </div>
+        </div>
+        <div class="craftsmanship-section reveal">
+            <h2>Our Craft Process</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <h4>Design</h4>
+                    <p>You personalize. We visualize.</p>
+                </div>
+                <div class="step">
+                    <h4>Create</h4>
+                    <p>Artisans bring your idea to life.</p>
+                </div>
+                <div class="step">
+                    <h4>Quality</h4>
+                    <p>Every product is checked by hand.</p>
+                </div>
+                <div class="step">
+                    <h4>Deliver</h4>
+                    <p>Carefully packed and shipped with love.</p>
+                </div>
+            </div>
+        </div>
+        <div class="stats-section reveal">
+            <div class="stat">
+                <h3 data-count="10000">0</h3>
+                <p>Happy Customers</p>
+            </div>
+            <div class="stat">
+                <h3 data-count="50000">0</h3>
+                <p>Gifts Created</p>
+            </div>
+            <div class="stat">
+                <h3 data-count="100">0</h3>
+                <p>Satisfaction %</p>
+            </div>
+            <div class="stat">
+                <h3 data-count="25">0</h3>
+                <p>Product Types</p>
+            </div>
+        </div>
+        <div class="team-section reveal">
+            <h2>Meet the Minds</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <h3>Founder</h3>
+                    <p class="name">Aarav Mehta</p>
+                    <p class="role">Vision & Brand Strategy</p>
+                    <p class="desc">
+                        Founded LuxeGifts with a passion for craftsmanship and meaningful human connections.
+                    </p>
+                </div>
+                <div class="team-card">
+                    <h3>Website Developer</h3>
+                    <p class="name">Rahul Malu</p>
+                    <p class="role">Python & Django Developer</p>
+                    <p class="desc">
+                        Designed and developed the LuxeGifts platform with performance, scalability,
+                        and elegant UX in mind.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="{% static 'js/home/about.js' %}"></script>
+{% endblock content %}
