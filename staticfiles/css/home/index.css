@@ -1,0 +1,200 @@
+/* ================= ROOT COLOR PALETTE ================= */
+:root {
+  --bg: #fdfbfb;
+  --text: #1f2937;
+  --pink: #ff8ec7;
+  --purple: #b39cff;
+  --blue: #7dd3fc;
+  --green: #86efac;
+  --yellow: #fde68a;
+  --glass: rgba(255,255,255,0.7);
+  --shadow: 0 25px 50px rgba(0,0,0,0.1);
+}
+body.dark{
+  --bg: #fdfbfb;
+  --text: #1f2937;
+  --pink: #fd0aa0;
+  --purple: #7712fc;
+  --blue: #09acf8;
+  --green: #06f95f;
+  --yellow: #fdcb05;
+  --glass: rgba(255,255,255,0.7);
+  --shadow: 0 25px 50px rgba(0,0,0,0.1);
+}
+/* ================= GLOBAL ================= */
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-content {
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+}
+
+.hero p {
+  margin: 15px 0 30px;
+  font-size: 1.2rem;
+}
+
+.btn {
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+}
+
+/* ================= FLOATING ELEMENTS ================= */
+.float {
+  position: absolute;
+  animation: float 8s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.circle {
+  width: 120px;
+  height: 120px;
+  background: var(--pink);
+  border-radius: 50%;
+  top: 10%;
+  left: 5%;
+}
+
+.blob {
+  width: 180px;
+  height: 180px;
+  background: var(--purple);
+  border-radius: 60% 40% 30% 70%;
+  top: 40%;
+  right: 8%;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 70px solid transparent;
+  border-right: 70px solid transparent;
+  border-bottom: 120px solid var(--blue);
+  bottom: 10%;
+  left: 70%;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-30px) rotate(10deg); }
+  100% { transform: translateY(0) rotate(0); }
+}
+
+/* ================= CATEGORIES ================= */
+.categories {
+  padding: 90px 20px;
+  text-align: center;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.category-card {
+  padding: 40px;
+  border-radius: 22px;
+  color: #fff;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s;
+}
+
+.category-card:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+.pink { background: var(--pink); }
+.purple { background: var(--purple); }
+.blue { background: var(--blue); }
+.green { background: var(--green); }
+
+/* ================= REVIEWS ================= */
+.reviews {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #fef3c7, #e0f2fe);
+  overflow: hidden;
+}
+
+.reviews-track {
+  display: flex;
+  gap: 30px;
+  animation: scroll 30s linear infinite;
+}
+
+.review-card {
+  min-width: 320px;
+  background: var(--glass);
+  backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.stars {
+  color: gold;
+  margin-bottom: 10px;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-60%); }
+}
+
+/* ================= NEWSLETTER ================= */
+.newsletter {
+  padding: 90px 20px;
+  text-align: center;
+}
+
+.newsletter form {
+  margin-top: 20px;
+}
+
+.newsletter input {
+  padding: 14px;
+  width: 260px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+}
+
+.newsletter button {
+  padding: 14px 24px;
+  border-radius: 20px;
+  border: none;
+  background: var(--purple);
+  color: #fff;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+}
