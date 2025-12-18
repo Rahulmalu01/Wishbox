@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'home',
     'account',
     'shop',
+    'manager',
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -70,6 +71,7 @@ TEMPLATES = [
             BASE_DIR / 'home' / 'templates',
             BASE_DIR / 'account' / 'templates',
             BASE_DIR / 'shop' / 'templates',
+            BASE_DIR / 'manager' / 'templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
