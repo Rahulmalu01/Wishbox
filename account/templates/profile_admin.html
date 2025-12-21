@@ -1,0 +1,41 @@
+{% extends "admin.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/account/profile_admin.css' %}">
+<div class="page-header">
+    <h1>My Profile</h1>
+    <p class="subtitle">Manage your account information</p>
+</div>
+<div class="profile-layout">
+    <div class="profile-card">
+        <div class="avatar">
+            {{ user.username|slice:":1"|upper }}
+        </div>
+        <h2>{{ user.username }}</h2>
+        <p class="role">Administrator</p>
+        <div class="meta">
+            <p><strong>Email:</strong> {{ user.email|default:"Not set" }}</p>
+            <p><strong>Last Login:</strong> {{ user.last_login|date:"d M Y, H:i" }}</p>
+            <p><strong>Joined:</strong> {{ user.date_joined|date:"d M Y" }}</p>
+        </div>
+    </div>
+    <div class="card profile-form-card">
+        <h3>Edit Profile</h3>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" value="{{ user.username }}">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" value="{{ user.email }}">
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">💾 Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="{% static 'js/account/profile_admin.js' %}"></script>
+{% endblock %}

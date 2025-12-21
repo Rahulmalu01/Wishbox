@@ -1,0 +1,59 @@
+{% extends "admin.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href='{% static "css/manager/home.css" %}'>
+<div class="page-header">
+    <h1>Dashboard</h1>
+    <p class="subtitle">Overview of store activity</p>
+</div>
+<div class="stats">
+    <div class="card stat-card">
+        <h3>📦 Products</h3>
+        <p class="stat-number">{{ product_count }}</p>
+    </div>
+    <div class="card stat-card">
+        <h3>🛒 Active Orders</h3>
+        <p class="stat-number">{{ active_orders }}</p>
+    </div>
+    <div class="card stat-card">
+        <h3>✅ Completed Orders</h3>
+        <p class="stat-number">{{ completed_orders }}</p>
+    </div>
+    <div class="card stat-card">
+        <h3>💰 Total Revenue</h3>
+        <p class="stat-number">₹{{ total_revenue }}</p>
+    </div>
+</div>
+<div class="card" style="margin-top:30px;">
+    <h3>Recent Orders</h3>
+    <table class="order-table">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Amount</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for o in recent_orders %}
+            <tr>
+                <td>{{ o.owner|default:"Guest" }}</td>
+                <td>₹{{ o.amount }}</td>
+                <td>
+                    <span class="status {{ o.status }}">
+                        {{ o.status|title }}
+                    </span>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3" class="empty-row">
+                    No recent orders
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script src='{% static "js/manager/home.js" %}'></script>
+{% endblock %}

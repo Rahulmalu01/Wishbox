@@ -1,0 +1,42 @@
+{% extends "admin.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href='{% static "css/manager/completed.css" %}'>
+<div class="page-header">
+    <h1>Completed Orders</h1>
+    <p class="subtitle">Orders that have been successfully fulfilled</p>
+</div>
+<div class="card">
+    <table class="order-table">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Total Amount (₹)</th>
+                <th>Completed On</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for o in orders %}
+            <tr>
+                <td>
+                    {{ o.owner|default:"Guest User" }}
+                </td>
+                <td>
+                    <strong>₹{{ o.amount }}</strong>
+                </td>
+                <td>
+                    {{ o.updated_at|date:"d M Y, H:i" }}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3" class="empty-row">
+                    No completed orders yet.
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script src='{% static "js/manager/completed.js" %}'></script>
+{% endblock %}

@@ -1,5 +1,5 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/base/navbar.css' %}">
+<link rel="stylesheet" href="{% static 'css/base/base_templates/navbar.css' %}">
 <nav class="navbar">
     <div class="nav-container">
         <div class="logo"><a href="{% url 'home' %}">Wishbox</a></div>
@@ -12,7 +12,7 @@
             <a href="{% url 'faq' %}" class="nav-link">FAQ</a>
             {% if user.is_authenticated %}
             <a href="{% url 'account:logout' %}" class="nav-link" style="color: red;">Logout</a>
-                <a href="{% url 'account:profile' %}" class="nav-link"> {{ user.username|upper }} </a>
+                <a href="{% url 'account:profile_user' %}" class="nav-link"> {{ user.username|upper }} </a>
             {% else %}
                 <a href="{% url 'account:login' %}" class="nav-link">Login</a>
             {% endif %}
@@ -30,4 +30,4 @@
         </div>
     </div>
 </nav>
-<script src="{% static 'js/base/navbar.js' %}"></script>
+<script src="{% static 'js/base/base_templates/navbar.js' %}"></script>

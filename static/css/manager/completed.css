@@ -1,0 +1,21 @@
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.order-table th,.order-table td {
+    padding: 14px;
+    border-bottom: 1px solid #eee;
+}
+.order-table th {
+    background: #f5f6fa;
+    font-weight: 600;
+    font-size: 14px;
+}
+.order-table td {font-size: 14px;}
+.order-table tr:hover {background: #fafafa;}
+.empty-row {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+    font-style: italic;
+}

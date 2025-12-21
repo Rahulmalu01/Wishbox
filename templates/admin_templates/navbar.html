@@ -1,28 +1,19 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/base/navbar.css' %}">
-<nav class="navbar">
-    <div class="nav-container">
-        <div class="logo"><a href="{% url 'manager' %}">Wishbox</a></div>
-        <div class="nav-menu" id="navMenu">
-            <a href="{% url 'manager' %}" class="nav-link">Dashboard</a>
-            <a href="{% url 'addproduct' %}" class="nav-link">Add Product</a>
-            <a href="{% url 'alterproduct' %}" class="nav-link">Alter Product</a>
-            <a href="{% url 'vieworder' %}" class="nav-link">View Order</a>
-            <a href="{% url 'completedorder' %}" class="nav-link">Complete</a>
-        </div>
-        <div class="nav-icons">
-            {% if user.is_authenticated %}
-                <a href="{% url 'account:logout' %}" class="nav-link" style="color: red;">Logout</a>
-                <a href="{% url 'account:profile' %}" class="nav-link"> {{ user.username|upper }} </a>
-            {% else %}
-                <a href="{% url 'account:login' %}" class="nav-link">Login</a>
-            {% endif %}
-            <button class="theme-toggle" id="themeToggle"
-                style="background:none;border:none;font-size:25px;cursor:pointer;margin-left:10px;">
-                🌙
-            </button>
-            <button class="menu-toggle" id="menuToggle">☰</button>
-        </div>
+<link rel="stylesheet" href="{% static 'css/base/admin_templates/sidebar.css' %}">
+<aside class="sidebar">
+    <h2 class="sidebar-title">Admin</h2> <hr> <br>
+    <nav class="sidebar-nav">
+        <a href="{% url 'manager:home' %}">📊 Dashboard</a> 
+        <a href="{% url 'manager:addproduct' %}">➕ Add Product</a> 
+        <a href="{% url 'manager:alterproduct' %}">✏️ Edit Products</a> 
+        <a href="{% url 'manager:vieworder' %}">🛒 Orders</a> 
+        <a href="{% url 'manager:completedorder' %}">✅ Completed</a> 
+    </nav>
+    <div class="sidebar-footer">
+        {% if user.is_authenticated %}
+            <a href="{% url 'account:profile_admin' %}" class="user">{{ user.username|upper }}</a> 
+            <a href="{% url 'account:logout' %}" class="logout">Logout</a>
+        {% endif %}
     </div>
-</nav>
-<script src="{% static 'js/base/navbar.js' %}"></script>
+</aside>
+<script src="{% static 'js/base/admin_templates/sidebar.js' %}"></script>

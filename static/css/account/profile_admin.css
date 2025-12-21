@@ -1,0 +1,59 @@
+.profile-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+}
+.profile-card {
+    background: linear-gradient(135deg, #575fcf, #706fd3);
+    color: #fff;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+}
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0 auto 15px;
+}
+.profile-card h2 {margin-bottom: 6px;}
+.role {
+    font-size: 13px;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+.meta p {
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+.profile-form-card {padding: 30px;}
+.profile-form-card h3 {margin-bottom: 20px;}
+.profile-form-card .form-group {margin-bottom: 18px;}
+.profile-form-card label {
+    font-size: 13px;
+    display: block;
+    margin-bottom: 6px;
+}
+.profile-form-card input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+.profile-form-card input:focus {
+    border-color: #575fcf;
+    outline: none;
+}
+.form-actions {
+    text-align: right;
+    margin-top: 10px;
+}
+@media (max-width: 900px) {
+    .profile-layout {grid-template-columns: 1fr;}
+}

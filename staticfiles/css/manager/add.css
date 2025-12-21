@@ -1,0 +1,92 @@
+.page-header {
+    margin-bottom: 25px;
+}
+
+.page-header h1 {
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    color: #777;
+    font-size: 14px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    max-width: 900px;
+}
+
+.product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full {
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: #444;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #575fcf;
+    box-shadow: 0 0 0 2px rgba(87,95,207,0.1);
+}
+
+.form-actions {
+    text-align: right;
+}
+
+.btn-primary {
+    background: #575fcf;
+    color: #fff;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #4b4ecf;
+}
+
+.image-preview {
+    margin-top: 25px;
+}
+
+.image-preview img {
+    width: 200px;
+    height: 200px;
+    border-radius: 14px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+}

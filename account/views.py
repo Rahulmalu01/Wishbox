@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required, login_not_required
+from django.contrib.admin.views.decorators import staff_member_required
 from .forms import UserForm, ProfileForm
 
 @login_not_required
@@ -65,7 +66,7 @@ def register_view(request):
     return render(request, 'login.html')
 
 @login_required
-def profile_page(request):
+def profile_user(request):
     user = request.user
     profile = user.profile
 
@@ -81,11 +82,22 @@ def profile_page(request):
         user_form = UserForm(instance=user)
         profile_form = ProfileForm(instance=profile)
 
-    return render(request, "profile.html", {
+    return render(request, "profile_user.html", {
         "user_form": user_form,
         "profile_form": profile_form,
         "profile": profile,
     })
+
+@staff_member_required
+def profile_admin(request):
+    user = request.user
+    if request.method == "POST":
+        user.username = request.POST.get("username", user.username)
+        user.email = request.POST.get("email", user.email)
+        user.save()
+        messages.success(request, "Profile updated successfully")
+        return redirect("manager:profile")
+    return render(request, "profile_admin.html")
 
 @login_required
 def logout_view(request):

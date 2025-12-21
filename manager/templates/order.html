@@ -1,0 +1,54 @@
+{% extends "admin.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href='{% static "css/manager/order.css" %}'>
+<div class="page-header">
+    <h1>Orders</h1>
+    <p class="subtitle">Active and pending customer orders</p>
+</div>
+<div class="card">
+    <table class="order-table">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Total Amount (₹)</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for o in orders %}
+            <tr>
+                <td>{{ o.owner|default:"Guest User" }}</td>
+                <td><strong>₹{{ o.amount }}</strong></td>
+                <td>
+                    <span class="status {{ o.status }}">
+                        {{ o.status|title }}
+                    </span>
+                </td>
+                <td>
+                    {% if o.status != "completed" %}
+                    <form method="post" action="{% url 'manager:markcompleted' o.razorpay_order_id %}">
+                        {% csrf_token %}
+                        <button class="btn-complete"
+                            onclick="return confirm('Mark this order as completed?')">
+                            ✅ Complete
+                        </button>
+                    </form>
+                    {% else %}
+                        —
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" class="empty-row">
+                    No active orders found.
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<script src='{% static "js/manager/order.js" %}'></script>
+{% endblock %}

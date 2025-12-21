@@ -1,0 +1,59 @@
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.product-table th, .product-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+.product-table th {
+    background: #f5f6fa;
+    text-align: left;
+}
+.btn-edit {
+    background: #00a8ff;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 6px;
+}
+.btn-delete {
+    background: #e84118;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+    align-items: center;
+    justify-content: center;
+}
+.modal-content {
+    background: #fff;
+    padding: 25px;
+    width: 400px;
+    border-radius: 14px;
+}
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+}
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.btn-cancel {
+    background: #ccc;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+}
